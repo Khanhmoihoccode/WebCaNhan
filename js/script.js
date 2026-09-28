@@ -18,40 +18,26 @@ const typing = document.getElementById("typing");
 
 
 /* DARK MODE */
-
-themeBtn.addEventListener("click", function () {
-
-    body.classList.toggle("dark");
-
-    if (body.classList.contains("dark")) {
-
+if (themeBtn) {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark");
         themeBtn.textContent = "☀️";
-
-        localStorage.setItem(
-            "theme",
-            "dark"
-        );
-
     } else {
-
+        body.classList.remove("dark");
         themeBtn.textContent = "🌙";
-
-        localStorage.setItem(
-            "theme",
-            "light"
-        );
-
     }
+    themeBtn.addEventListener("click", function () {
+        body.classList.toggle("dark");
 
-});
-
-
-if (localStorage.getItem("theme") === "dark") {
-
-    body.classList.add("dark");
-
-    themeBtn.textContent = "☀️";
-
+        if (body.classList.contains("dark")) {
+            themeBtn.textContent = "☀️";
+            localStorage.setItem("theme", "dark");
+        } else {
+            themeBtn.textContent = "🌙";
+            localStorage.setItem("theme", "light");
+        }
+    });
 }
 
 
