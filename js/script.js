@@ -1,6 +1,3 @@
-const body = document.body;
-
-const themeBtn = document.getElementById("themeBtn");
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 
@@ -13,31 +10,6 @@ const topBtn = document.getElementById("topBtn");
 
 const contactForm = document.getElementById("contactForm");
 const typing = document.getElementById("typing");
-
-
-/* DARK MODE */
-if (themeBtn) {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-        body.classList.add("dark");
-        themeBtn.textContent = "☀️";
-    } else {
-        body.classList.remove("dark");
-        themeBtn.textContent = "🌙";
-    }
-
-    themeBtn.addEventListener("click", function () {
-        body.classList.toggle("dark");
-
-        if (body.classList.contains("dark")) {
-            themeBtn.textContent = "☀️";
-            localStorage.setItem("theme", "dark");
-        } else {
-            themeBtn.textContent = "🌙";
-            localStorage.setItem("theme", "light");
-        }
-    });
-}
 
 
 /* MOBILE MENU */
